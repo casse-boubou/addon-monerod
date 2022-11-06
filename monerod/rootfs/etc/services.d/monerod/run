@@ -1,0 +1,83 @@
+#!/usr/bin/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Home Assistant Add-on: Sharry
+# Runs Sharry
+# ==============================================================================
+
+declare -a conf_props=()
+
+
+# --- Load USER'S CUSTOM configuration overrides ---
+bashio::log.debug "Loading 'monerod_conf_overrides'..."
+for var in $(bashio::config 'monerod_conf_overrides|keys'); do
+    property=$(bashio::config "monerod_conf_overrides[${var}].property")
+    value=$(bashio::config "monerod_conf_overrides[${var}].value")
+    if [[ ${property} =~ secret|password ]]; then
+        bashio::log.info "Setting ${property} to ******"
+    else
+        if ! bashio::config.is_empty "monerod_conf_overrides[${var}].value"; then
+        bashio::log.info "Setting ${property} to ${value}"
+        else
+        bashio::log.info "Setting ${property} to on"
+        fi
+    fi
+    if ! bashio::config.is_empty "monerod_conf_overrides[${var}].value"; then
+    conf_props+=("--${property}=${value//\"/\\\"}")
+    else
+    conf_props+=("--${property}")
+    fi
+done
+
+
+# Set path to data directory
+bashio::log.info "Configuring where the blockchain, log files, and p2p network memory are stored"
+conf_props+=("--data-dir=/media/$(bashio::config 'data_dir')")
+conf_props+=("--log-file=/media/$(bashio::config 'data_dir')/monerod_LOG.log")
+bashio::log.info "Data storage locate at /media/$(bashio::config 'data_dir')"
+
+
+# Set log file size
+if ! bashio::config.is_empty 'max_log_file_size'; then
+    conf_props+=("--max-log-file-size=$(bashio::config 'max_log_file_size')")
+    bashio::log.info "Log file will be split every $(bashio::config 'max_log_file_size')bytes"
+fi
+
+
+# Specify sync option
+if ! bashio::config.is_empty 'db_sync_mode'; then
+    conf_props+=("--db-sync-mode=$(bashio::config 'db_sync_mode')")
+    bashio::log.info "Sync of database is in $(bashio::config 'db_sync_mode') mode."
+    bashio::log.notice "The fast can corrupt blockchain database in case of a system crash."
+    bashio::log.notice "It should not corrupt if just monerod crashes."
+    bashio::log.notice "If you are concerned with system crashes use safe:sync."
+fi
+
+
+# Active pruned blockchain
+if bashio::config.true 'prune_blockchain'; then
+    conf_props+=("--prune-blockchain")
+    bashio::log.info "The pruned blockchain is activated"
+fi
+if bashio::config.true 'sync_pruned_blocks'; then
+    conf_props+=("--sync-pruned-blocks")
+    bashio::log.info "Pruned blockchain will be chosen during synchronization"
+fi
+
+
+# --- SET LOG LEVEL ---
+# Can't be set with arguments or env variables, search & replace config file
+case "$(bashio::config 'log_level')" in \
+    notice)     log_level='1' ;; \
+    debug)      log_level='2' ;; \
+    trace)      log_level='3' ;; \
+    all)        log_level='4' ;; \
+    *)          log_level='0' ;; \
+esac;
+bashio::log.info "MoneroD log level set to ${log_level}"
+conf_props+=("--log-level=${log_level}")
+
+
+# Launching monerod
+bashio::log.info "Starting of Monerod"
+exec /opt/monerod --non-interactive --config-file /etc/monerod/bitmonero.conf "${conf_props[@]}"
