@@ -32,12 +32,16 @@ db_sync_mode: safe
 
 **Note**: _Ceci n'est qu'un exemple, ne le copier-coller pas ! Crée le votre!_
 
-### Option: `monerod_conf_overrides`
+**Note**: _Les options `enable-dns-blocklist`, `disable-dns-checkpoints` et `zmq-pub`
+sont défini par défaut pour fonctionner avec [P2pool][p2pool]_
 
-Cette option vous permet de fournir une option de remplacements de
-configuration pour personnaliser les configutaions avancées de Monerod
-qui n'ont pas été exposées en tant qu'options ci-dessous. Vous pouvez voir
-l'ensemble complet des options disponibles ici :
+### Option: `monerod_conf_overrides` (optional)
+
+Cette option vous permet de fournir une option de configuration pour personnaliser
+les configutaions avancées de Monerod qui n'ont pas été prédéfinit en tant qu'options
+d'addon paramétrable.
+
+Vous pouvez voir l'ensemble complet des options disponibles ici :
 
 <https://monerodocs.org/interacting/monerod-reference/#options>
 
@@ -58,13 +62,13 @@ peut éventuellement entraîner des problèmes avec votre instance.
 Celles-ci sont sensibles à la casse. Vous pouvez consulter la
 [configuration par défaut][default-config] que cet add-on utilise.
 
-### Option: `data_dir`
+### Option: `data_dir` (required)
 
 Chemin d'accès complet au répertoire de données. C'est là que la blockchain, les
 fichiers LOG et la mémoire du réseau p2p sont stockés. Il prend racines depuis le
 dossier 'media' du HomeAssistant. Quelques détails supplémentaire [ici][datadir]
 
-### Option: `max_log_file_size`
+### Option: `max_log_file_size` (optional)
 
 Limite de taille en octets du fichier LOG (=104850000 par défaut, soit un peu moins
 de 100 Mo). Une fois que le fichier journal dépasse cette limite, monerod crée le
@@ -74,7 +78,7 @@ Dans les déploiements de production, vous préféreriez probablement utiliser u
 solutions comme logrotate à la place. Dans ce cas, définissez `max_log_file_size`
 sur 0 pour empêcher monerod de gérer les fichiers journaux.
 
-### Option: `prune_blockchain`
+### Option: `prune_blockchain` (optional)
 
 La blockchain Prune permet d'économiser 2/3 de l'espace disque sans dégrader les
 fonctionnalités. Pour un effet maximal, cela devrait déjà être activé lors de la
@@ -87,13 +91,13 @@ L'inconvénient est que vous contribuerez moins au réseau Monero P2P en termes 
 Cependant, vous serez toujours utile pour relayer de nouvelles transactions et de
 nouveaux blocs.
 
-### Option: `sync_pruned_blocks`
+### Option: `sync_pruned_blocks` (optional)
 
 Acceptez la synchronisation depuis des noeuds deja Pruned au lieu que monerod le
 fasse lui même. Il devrait économiser le transfert réseau lorsqu'il est utilisé
 avec `prune_blockchain`.
 
-### Option: `db_sync_mode`
+### Option: `db_sync_mode` (optional)
 
 Spécifiez le mode de synchronisation. [safe|fast|fastest]
 
@@ -182,3 +186,4 @@ SOFTWARE.
 [themoneroproject]: https://github.com/monero-project
 [monerolicense]: https://github.com/monero-project/monero/blob/master/LICENSE
 [default-config]: https://github.com/erdnaxela02/addon-monerod/blob/main/monerod/rootfs/etc/monerod/bitmonero.conf
+[p2pool]: https://github.com/SChernykh/p2pool
