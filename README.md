@@ -43,7 +43,7 @@ Si vous avez une question concernant HA et ses add-ons vous pouvez consulter:
 
 MIT License
 
-Copyright (c) 2022 [Frosch][frosch]
+Copyright (c) 2022-2023 [Frosch][frosch]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -63,7 +63,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-> **_Parts of the project are originally Copyright (c) 2014-2022, [The Monero Project][themoneroproject],
+> **_Parts of the project are originally Copyright (c) 2014-2023, [The Monero Project][themoneroproject],
 > distributed under [licence][monerolicense]:_**
 >
 > Redistribution and use in source and binary forms, with or without modification,
