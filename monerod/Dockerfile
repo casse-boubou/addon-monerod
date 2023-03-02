@@ -5,7 +5,7 @@ ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base
 FROM ${BUILD_FROM}
 
 # https://github.com/eikek/sharry/releases
-ARG MONEROD_VERSION=0.18.1.2
+ARG MONEROD_VERSION=0.18.2.0
 
 # Add monerod
 RUN set -eux; \
