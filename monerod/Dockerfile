@@ -1,11 +1,11 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base
+ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base:6.2.2
 
 # https://github.com/hassio-addons/addon-base/releases
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
 # https://github.com/eikek/sharry/releases
-ARG MONEROD_VERSION=0.18.2.0
+ARG MONEROD_VERSION=v0.18.2.0
 
 # Add monerod
 RUN set -eux; \
@@ -16,16 +16,16 @@ RUN set -eux; \
         ; \
     mkdir -p /opt; \
     curl -s -J -L -o /tmp/monerod.tar.bz2 \
-        "https://downloads.getmonero.org/cli/monero-linux-armv8-v${MONEROD_VERSION}.tar.bz2"; \
+        "https://downloads.getmonero.org/cli/monero-linux-armv8-${MONEROD_VERSION}.tar.bz2"; \
     tar -xjf /tmp/monerod.tar.bz2 -C /tmp; \
     apt-get -y autoremove --purge \
         bzip2 \
         ; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/*; \
-    mv /tmp/monero-aarch64-linux-gnu-v${MONEROD_VERSION}/monerod /opt/monerod; \
+    mv /tmp/monero-aarch64-linux-gnu-${MONEROD_VERSION}/monerod /opt/monerod; \
     rm /tmp/monerod.tar.bz2; \
-    rm -r /tmp/monero-aarch64-linux-gnu-v${MONEROD_VERSION}
+    rm -r /tmp/monero-aarch64-linux-gnu-${MONEROD_VERSION}
     
 COPY --chmod=445 rootfs /
 WORKDIR /
