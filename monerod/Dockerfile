@@ -8,7 +8,7 @@ FROM ${BUILD_FROM}
 ARG MONEROD_VERSION=v0.18.2.0
 
 # Add monerod
-RUN set -eux \
+RUN set -eux; \
     apt-get update; \
     \
     apt-get --no-install-recommends -y install \
