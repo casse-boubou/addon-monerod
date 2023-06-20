@@ -12,7 +12,7 @@ RUN set -eux; \
     apt-get update; \
     \
     apt-get --no-install-recommends -y install \
-        bzip2=1.0.8-4 \
+        bzip2=1.0.8-5 \
         ; \
     mkdir -p /opt; \
     curl -s -J -L -o /tmp/monerod.tar.bz2 \
