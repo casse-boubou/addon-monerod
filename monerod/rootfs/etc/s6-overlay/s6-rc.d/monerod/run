@@ -1,11 +1,11 @@
-#!/usr/bin/with-contenv bashio
+#!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
 # Home Assistant Add-on: Monerod
 # Runs Monerod
 # ==============================================================================
 
-declare -a conf_props=()
+declare -a conf_props
 
 
 # --- Load USER'S CUSTOM configuration overrides ---
