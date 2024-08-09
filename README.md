@@ -93,19 +93,19 @@ SOFTWARE.
 
 [add-addon]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=c751e21a_monerod
 [add-addon-shield]: https://my.home-assistant.io/badges/supervisor_addon.svg
-[add-repo]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A//github.com/erdnaxela02/hassio-addons
+[add-repo]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A//github.com/casse-boubou/hassio-addons
 [add-repo-shield]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
-[releases]: https://github.com/erdnaxela02/addon-monerod/releases
-[releases-shield]: https://img.shields.io/github/v/release/erdnaxela02/addon-monerod
-[license-shield]: https://img.shields.io/github/license/erdnaxela02/addon-monerod
+[releases]: https://github.com/casse-boubou/addon-monerod/releases
+[releases-shield]: https://img.shields.io/github/v/release/casse-boubou/addon-monerod
+[license-shield]: https://img.shields.io/github/license/casse-boubou/addon-monerod
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [getmonero]: https://www.getmonero.org
 [pruning]: https://www.getmonero.org/resources/moneropedia/pruning.html
-[addon_p2pool]: https://github.com/erdnaxela02/addon-p2pool
+[addon_p2pool]: https://github.com/casse-boubou/addon-p2pool
 [p2pool]: https://github.com/SChernykh/p2pool
 [discord-ha]: https://discord.gg/c5DvZ4e
 [forum]: https://community.home-assistant.io
 [hacf]: https://forum.hacf.fr/
-[frosh]: https://github.com/erdnaxela02
+[frosh]: https://github.com/casse-boubou
 [themoneroproject]: https://github.com/monero-project
 [monerolicense]: https://github.com/monero-project/monero/blob/master/LICENSE
