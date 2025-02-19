@@ -1,8 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>casse-boubou/ha-addon-workflows//.github/renovate.json"],
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "fileMatch": ["/build.yaml$"],
       "matchStringsStrategy": "any",
       "matchStrings": [
@@ -11,6 +12,7 @@
       "datasourceTemplate": "docker"
     },
     {
+      "customType": "regex",
       "fileMatch": ["/Dockerfile$"],
       "matchStringsStrategy": "any",
       "matchStrings": [
@@ -19,6 +21,7 @@
       "datasourceTemplate": "docker"
     },
     {
+      "customType": "regex",
       "fileMatch": ["/Dockerfile$"],
       "matchStringsStrategy": "any",
       "matchStrings": [
@@ -29,6 +32,7 @@
       "depNameTemplate": "debian_12/{{package}}"
     },
     {
+      "customType": "regex",
       "fileMatch": ["/Dockerfile$"],
       "matchStrings": ["ARG MONEROD_VERSION=(?<currentValue>.+?)\\s+"],
       "datasourceTemplate": "github-releases",
