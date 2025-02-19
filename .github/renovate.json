@@ -1,9 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>casse-boubou/ha-addon-workflows//.github/renovate.json"],
-  "regexManagers": [
+  "extends": [
+    "github>casse-boubou/ha-addon-workflows//.github/renovate.json"
+  ],
+  "customManagers": [
     {
-      "fileMatch": ["/build.yaml$"],
+      "customType": "regex",
+      "fileMatch": [
+        "/build.yaml$"
+      ],
       "matchStringsStrategy": "any",
       "matchStrings": [
         "(aarch64|amd64|armhf|armv7|i386):\\s[\"']?(?<depName>.*?):(?<currentValue>.*?)[\"']?\\s"
@@ -11,7 +16,10 @@
       "datasourceTemplate": "docker"
     },
     {
-      "fileMatch": ["/Dockerfile$"],
+      "customType": "regex",
+      "fileMatch": [
+        "/Dockerfile$"
+      ],
       "matchStringsStrategy": "any",
       "matchStrings": [
         "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+"
@@ -19,7 +27,10 @@
       "datasourceTemplate": "docker"
     },
     {
-      "fileMatch": ["/Dockerfile$"],
+      "customType": "regex",
+      "fileMatch": [
+        "/Dockerfile$"
+      ],
       "matchStringsStrategy": "any",
       "matchStrings": [
         "\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-:_+~.]+)\\s+"
@@ -29,8 +40,13 @@
       "depNameTemplate": "debian_12/{{package}}"
     },
     {
-      "fileMatch": ["/Dockerfile$"],
-      "matchStrings": ["ARG MONEROD_VERSION=(?<currentValue>.+?)\\s+"],
+      "customType": "regex",
+      "fileMatch": [
+        "/Dockerfile$"
+      ],
+      "matchStrings": [
+        "ARG MONEROD_VERSION=(?<currentValue>.+?)\\s+"
+      ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "monero-project/monero",
       "versioningTemplate": "loose"
@@ -38,19 +54,27 @@
   ],
   "packageRules": [
     {
-      "matchDatasources": ["docker"],
+      "matchDatasources": [
+        "docker"
+      ],
       "commitMessagePrefix": "⬆️",
       "commitMessageTopic": "Addon Base Image"
     },
     {
-      "matchDatasources": ["repology"],
+      "matchDatasources": [
+        "repology"
+      ],
       "commitMessagePrefix": "⬆️",
       "commitMessageTopic": "{{packageName}}",
       "groupName": "internal packages"
     },
     {
-      "matchDatasources": ["github-releases"],
-      "matchDepNames": ["monero-project/monero"],
+      "matchDatasources": [
+        "github-releases"
+      ],
+      "matchDepNames": [
+        "monero-project/monero"
+      ],
       "commitMessagePrefix": "✨",
       "commitMessageTopic": "MoneroD"
     }
