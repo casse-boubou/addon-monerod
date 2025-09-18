@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base:7.8.1
+ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base:8.1.1
 
 # https://github.com/hassio-addons/addon-base/releases
 # hadolint ignore=DL3006
@@ -12,7 +12,7 @@ RUN set -eux; \
     apt-get update; \
     \
     apt-get --no-install-recommends -y install \
-        bzip2=1.0.8-5+b1 \
+        bzip2=1.0.8-6 \
         ; \
     mkdir -p /opt; \
     curl -s -J -L -o /tmp/monerod.tar.bz2 \
