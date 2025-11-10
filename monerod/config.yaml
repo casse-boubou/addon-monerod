@@ -6,7 +6,6 @@ slug: monerod
 arch:
   - aarch64
 description: Monerod pour HomeAssistant
-codenotary: erdnaxela02@hotmail.fr
 init: false
 map:
   - media:rw
