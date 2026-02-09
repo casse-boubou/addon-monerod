@@ -1,4 +1,4 @@
-# Home Assistant Add-on: Monerod
+# Home Assistant App: Monerod
 
 [![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE)
@@ -9,9 +9,9 @@
 une copie complète de la blockchain Monero et participant activement à la
 sécuritée du réseau.
 
-[![Open your Home Assistant instance and show the add add-on repository dialog
+[![Open your Home Assistant instance and show the add app repository dialog
 with a specific repository URL pre-filled.][add-repo-shield]][add-repo]
-[![Open your Home Assistant instance and show the dashboard of a Supervisor add-on.][add-addon-shield]][add-addon]
+[![Open your Home Assistant instance and show the dashboard of a Supervisor app.][add-app-shield]][add-app]
 
 ## About
 
@@ -24,8 +24,8 @@ with a specific repository URL pre-filled.][add-repo-shield]][add-repo]
   disque. Vous pouvez économiser 2/3 de la place necessaire à la blockchain en
   utilisant l'option `sync_pruned_blocks` qui telechargera alors une version
   [Pruned][pruning] de la blockchain.
-- Cet addon est essentielement develloper pour être utiliser avec [P2pool][p2pool].
-  Vous pouvez utiliser mon autre [addon P2pool][addon_p2pool] pour HomeAssistant.
+- Cet app est essentielement develloper pour être utiliser avec [P2pool][p2pool].
+  Vous pouvez utiliser mon autre [app P2pool][app_p2pool] pour HomeAssistant.
   Ou télécharger les fichiers binaires officiels de [P2pool][p2pool], executer le
   pool decentralisé sur une autre machine et la connecter à ce noeud Monero
 
@@ -33,7 +33,7 @@ with a specific repository URL pre-filled.][add-repo-shield]][add-repo]
 
 Je ne suis pas dévellopeur, n'ai aucune formation de code, je suis simplement
 autodidact.
-Si vous avez une question concernant HA et ses add-ons vous pouvez consulter:
+Si vous avez une question concernant HA et ses apps vous pouvez consulter:
 
 - [Le Forum communautaire francophone][hacf] de HomeAssistant
 - [Le Forum communautaire anglophone][forum] de HomeAssistant.
@@ -91,8 +91,8 @@ SOFTWARE.
 > > OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 > > OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE._
 
-[add-addon]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=c751e21a_monerod
-[add-addon-shield]: https://my.home-assistant.io/badges/supervisor_addon.svg
+[add-app]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=c751e21a_monerod
+[add-app-shield]: https://my.home-assistant.io/badges/supervisor_addon.svg
 [add-repo]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A//github.com/casse-boubou/hassio-addons
 [add-repo-shield]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
 [releases]: https://github.com/casse-boubou/addon-monerod/releases
@@ -101,7 +101,7 @@ SOFTWARE.
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [getmonero]: https://www.getmonero.org
 [pruning]: https://www.getmonero.org/resources/moneropedia/pruning.html
-[addon_p2pool]: https://github.com/casse-boubou/addon-p2pool
+[app_p2pool]: https://github.com/casse-boubou/addon-p2pool
 [p2pool]: https://github.com/SChernykh/p2pool
 [discord-ha]: https://discord.gg/c5DvZ4e
 [forum]: https://community.home-assistant.io
