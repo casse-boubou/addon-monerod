@@ -43,7 +43,7 @@ Si vous avez une question concernant HA et ses apps vous pouvez consulter:
 
 MIT License
 
-Copyright (c) 2022-2025 [Frosh][frosh]
+Copyright (c) 2022-2026 [Frosh][frosh]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
