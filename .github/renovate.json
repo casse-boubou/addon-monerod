@@ -5,9 +5,7 @@
       "customType": "regex",
       "managerFilePatterns": ["//Dockerfile$/"],
       "matchStringsStrategy": "any",
-      "matchStrings": [
-        "\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-:_+~.]+)\\s+"
-      ],
+      "matchStrings": ["\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-:_+~.]+)\\s+"],
       "versioningTemplate": "loose",
       "datasourceTemplate": "repology",
       "depNameTemplate": "debian_13/{{package}}"
@@ -15,9 +13,7 @@
     {
       "customType": "regex",
       "managerFilePatterns": ["//Dockerfile$/"],
-      "matchStrings": [
-        "ARG MONEROD_VERSION=(?<currentValue>.+?)\\s+"
-      ],
+      "matchStrings": ["ARG MONEROD_VERSION=(?<currentValue>.+?)\\s+"],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "monero-project/monero",
       "versioningTemplate": "loose"
