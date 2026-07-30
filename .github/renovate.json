@@ -5,10 +5,12 @@
       "customType": "regex",
       "managerFilePatterns": ["//Dockerfile$/"],
       "matchStringsStrategy": "any",
-      "matchStrings": ["\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-:_+~.]+)\\s+"],
-      "versioningTemplate": "loose",
+      "matchStrings": [
+        "\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-:_+~.]+)\\s+"
+      ],
       "datasourceTemplate": "repology",
-      "depNameTemplate": "debian_13/{{package}}"
+      "depNameTemplate": "debian_13/{{package}}",
+      "versioningTemplate": "loose"
     },
     {
       "customType": "regex",
