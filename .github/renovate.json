@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "github>casse-boubou/ha-addon-workflows//.github/renovate.json"
-  ],
+  "extends": ["github>casse-boubou/ha-addon-workflows//.github/renovate.json"],
   "customManagers": [
     {
       "customType": "regex",
@@ -17,7 +15,9 @@
     {
       "customType": "regex",
       "managerFilePatterns": ["//Dockerfile$/"],
-      "matchStrings": ["ARG MONEROD_VERSION=(?<currentValue>.+?)\\s+"],
+      "matchStrings": [
+        "ARG MONEROD_VERSION=(?<currentValue>.+?)\\s+"
+      ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "monero-project/monero",
       "versioningTemplate": "loose"
