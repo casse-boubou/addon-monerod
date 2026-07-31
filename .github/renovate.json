@@ -1,32 +1,37 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>casse-boubou/ha-addon-workflows//.github/renovate.json"],
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": ["//Dockerfile$/"],
-      "matchStringsStrategy": "any",
-      "matchStrings": [
-        "\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-:_+~.]+)\\s+"
-      ],
+      "managerFilePatterns": ["/(^|/)Dockerfile$/"],
       "datasourceTemplate": "repology",
-      "depNameTemplate": "debian_13/{{package}}",
+      "packageNameTemplate": "debian_13/{{package}}",
+      "depNameTemplate": "{{package}}",
+      "matchStrings": [
+        "\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-:_+~.]+)\\s"
+      ],
       "versioningTemplate": "loose"
     },
     {
       "customType": "regex",
-      "managerFilePatterns": ["//Dockerfile$/"],
-      "matchStrings": ["ARG MONEROD_VERSION=(?<currentValue>.+?)\\s+"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "monero-project/monero",
+      "managerFilePatterns": ["/(^|/)Dockerfile$/"],
+      "datasourceTemplate": "github-tags",
+      "packageNameTemplate": "monero-project/monero",
+      "depNameTemplate": "MoneroD",
+      "matchStrings": [
+        "(ARG)\\s(MONEROD.*_VERSION)=\"(?<currentValue>v?[0-9]+\\.[0-9]+(\\.[0-9]+){0,2})\"\\n"
+      ],
       "versioningTemplate": "loose"
     }
   ],
   "packageRules": [
     {
-      "matchDatasources": ["github-releases"],
+      "matchManagers": ["custom.regex"],
+      "matchDatasources": ["github-tags"],
       "matchDepNames": ["monero-project/monero"],
       "commitMessagePrefix": "✨",
-      "commitMessageTopic": "MoneroD"
+      "commitMessageTopic": "{{depName}}"
     }
   ]
 }

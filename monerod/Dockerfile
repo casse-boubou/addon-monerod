@@ -5,7 +5,7 @@ ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base:9.3.0
 FROM ${BUILD_FROM}
 
 # https://github.com/eikek/sharry/releases
-ARG MONEROD_VERSION=v0.18.5.1
+ARG MONEROD_VERSION="v0.18.5.1"
 
 # Add monerod
 RUN set -eux; \
@@ -22,10 +22,10 @@ RUN set -eux; \
         bzip2 \
         ; \
     apt-get clean; \
-    rm -rf /var/lib/apt/lists/*; \
     mv /tmp/monero-aarch64-linux-gnu-${MONEROD_VERSION}/monerod /opt/monerod; \
     rm /tmp/monerod.tar.bz2; \
-    rm -r /tmp/monero-aarch64-linux-gnu-${MONEROD_VERSION}
+    rm -r /tmp/monero-aarch64-linux-gnu-${MONEROD_VERSION}; \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
 COPY --chmod=445 rootfs /
 WORKDIR /
