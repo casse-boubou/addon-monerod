@@ -7,6 +7,7 @@ on:
     types:
       - opened
       - reopened
+      - synchronize
   workflow_dispatch:
 
 permissions:
@@ -17,4 +18,4 @@ permissions:
 
 jobs:
   workflows:
-    uses: casse-boubou/ha-addon-workflows/.github/workflows/app-ci.yaml@main
+    uses: casse-boubou/ha-addon-workflows/.github/workflows/app-ci.yaml@a282ba79666926dfbfba02cf92390ae73832f0fc # main
